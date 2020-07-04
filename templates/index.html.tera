@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include "partial/head" %}
+    <title>periodicaidan.xyz : : home</title>
+    <script src="{{ static_url_for("components/TypedTitle.js") }}"></script>
+</head>
+<body>
+    <header class="ui inverted vertical center aligned segment" id="jumbotron">
+        <nav class="ui huge secondary inverted pointing menu">
+            <div class="ui container">
+                <a href="/" class="active item">guest@periodicaidan</a>
+                <div class="right menu">
+                    <a href="/about" class="item">about</a>
+                    <a href="/blogs" class="item">blog</a>
+                </div>
+            </div>
+        </nav>
+        <div class="ui text">
+            <h1 class="ui inverted header" style="margin-top: 180px;">
+                <pre style="margin: 0"><code class="typed-title" value="periodicaidan.xyz"></code></pre>
+                <div class="ui sub header">
+                    The website of Aidan T. Manning
+                </div>
+            </h1>
+        </div>
+    </header>
+    <main>
+        <h1>Hello, {{ name | default(value = "World")}}!</h1>
+
+        <span class="right arrow lig"></span>
+        <ul>
+            {% for project in projects %}
+            <li><a
+                    href="https://github.com/{% if project.ns %}{{ project.ns }}{% else %}periodicaidan{% endif %}/{{ project.repo }}"
+                    target="_blank"
+            >{{ project.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </main>
+    {% include "partial/footer" %}
+    <script>
+        for (let typedTitle of document.getElementsByClassName("typed-title")) {
+            Elm.TypedTitle.init({
+                node: typedTitle,
+                flags: typedTitle.getAttribute("value")
+            });
+        }
+    </script>
+</body>
+</html>

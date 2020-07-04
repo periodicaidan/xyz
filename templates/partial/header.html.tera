@@ -1,0 +1,11 @@
+{% import "partial/macros" as macros %}
+<nav class="ui huge fixed menu">
+    <div class="ui container">
+        <a href="/" class="item">guest@periodicaidan</a>
+        <div class="right menu">
+            {{ macros::nav_item(label="about", url="/about") }}
+            {{ macros::nav_item(label="blogs", url="/blogs") }}
+        </div>
+    </div>
+</nav>
+

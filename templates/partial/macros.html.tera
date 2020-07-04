@@ -1,0 +1,3 @@
+{% macro nav_item(label, url) %}
+<a href="{{ url }}" class="item {% if _nav | default(value = "") == label %}active{% endif %}">{{ label }}</a>
+{% endmacro nav_item %}

@@ -1,0 +1,8 @@
+{% extends "partial/base" %}
+{% set _nav = "about" %}
+
+{% block title %}about{% endblock title %}
+
+{% block body %}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut blanditiis dignissimos laudantium nam numquam soluta velit? Accusantium asperiores, consequatur ea et facilis laboriosam officia quasi quo. Exercitationem magni maxime nisi provident suscipit tenetur vitae. Ab asperiores dolore doloremque dolorum earum, eius eligendi esse inventore ipsam ipsum molestiae nam nemo, praesentium quod recusandae suscipit tempora veniam voluptatum! Aspernatur beatae debitis ea expedita explicabo illo, non placeat quia repudiandae sed, sequi vel velit vitae. Accusantium alias culpa, deserunt eaque laboriosam nesciunt perspiciatis quos. Accusantium consectetur cum debitis dicta doloremque ducimus ipsam, labore, laboriosam minus nihil nisi nostrum odio perspiciatis praesentium quasi velit.
+{% endblock body %}

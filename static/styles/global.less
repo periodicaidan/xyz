@@ -1,0 +1,32 @@
+@import "contants";
+@import "ligatures";
+
+@jumbotronHeight: 700px;
+
+#jumbotron {
+  height: @jumbotronHeight;
+  background: linear-gradient(fadeout(@black, 70%), fadeout(@black, 20%)), url('../images/vaporwaveshit.jpg') no-repeat fixed center top;
+  background-size: cover;
+
+  .ui.text {
+    margin-top: @jumbotronHeight / 2 - 150;
+  }
+}
+
+footer {
+  width: 100%;
+  background-color: @black !important;
+  height: 250px;
+
+  #copyright {
+    font-family: @bodyFont !important;
+    line-height: 1.4em;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 85px;
+  }
+}
+
+code, kbd, pre {
+  font-family: @codeFont;
+}

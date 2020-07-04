@@ -1,0 +1,53 @@
+@import "contants";
+
+.lig {
+  font-family: @codeFont;
+
+  &.right {
+    &.arrow::before {
+      content: "->";
+    }
+
+    &.pipe::before {
+      content: "|>";
+    }
+  }
+
+  &.left {
+    &.arrow::before {
+      content: "<-";
+    }
+
+    &.pipe::before {
+      content: "<|";
+    }
+  }
+
+  &.two.headed.arrow::before {
+    content: "<=>";
+  }
+
+  &.eq::before {
+    content: "==";
+  }
+
+  &.ne::before {
+    content: "!=";
+  }
+
+  &.eqv::before {
+    content: "===";
+  }
+
+  &.neqv::before {
+    content: "!==";
+  }
+
+  &.le::before {
+    content: "<=";
+  }
+
+  &.ge::before {
+    content: ">=";
+  }
+}

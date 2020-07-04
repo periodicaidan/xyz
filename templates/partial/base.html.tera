@@ -1,0 +1,18 @@
+{% import "partial/macros" as macros %}
+<!doctype html>
+<html lang="en">
+<head>
+    {% include "partial/head" %}
+    <title>periodicaidan.xyz : : {% block title %}{% endblock title %}</title>
+    {% block extra_meta %}{% endblock extra_meta %}
+</head>
+<body>
+    <header>
+        {% include "partial/header" %}
+    </header>
+    <main class="ui container" style="margin-top: 70px">
+        {% block body %}{% endblock body %}
+    </main>
+    {% include "partial/footer" %}
+</body>
+</html>

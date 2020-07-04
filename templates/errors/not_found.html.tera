@@ -1,0 +1,9 @@
+{% extends "partial/base" %}
+
+{% block title %}not_found{% endblock title %}
+
+{% block body %}
+<h1>404 : Not Found</h1>
+
+<p>No resource found for <kbd>{{ route }}</kbd></p>
+{% endblock body %}
