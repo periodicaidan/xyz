@@ -1,0 +1,143 @@
+@import url("https://code.cdn.mozilla.net/fonts/fira.css");
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/robotoslab/v12/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISmb2Rm.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/robotoslab/v12/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoa4Omb2Rm.ttf) format('truetype');
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-Regular.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-Italic.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-Medium.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-Medium-Italic.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-Bold.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-Bold-Italic.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/JetBrainsMono/JetBrainsMono-ExtraBold-Italic.woff");
+}
+.lig {
+  font-family: "JetBrains Mono", "Fira Code", "Fira Mono", Monaco, monospace;
+  font-style: normal;
+}
+.lig.right.arrow::before {
+  content: "->";
+}
+.lig.right.pipe::before {
+  content: "|>";
+}
+.lig.left.arrow::before {
+  content: "<-";
+}
+.lig.left.pipe::before {
+  content: "<|";
+}
+.lig.two.headed.arrow::before {
+  content: "<=>";
+}
+.lig.eq::before {
+  content: "==";
+}
+.lig.ne::before {
+  content: "!=";
+}
+.lig.eqv::before {
+  content: "===";
+}
+.lig.neqv::before {
+  content: "!==";
+}
+.lig.le::before {
+  content: "<=";
+}
+.lig.ge::before {
+  content: ">=";
+}
+p {
+  font-size: 1.4em;
+}
+#jumbotron {
+  height: 700px;
+  background: linear-gradient(rgba(22, 17, 44, 0.3), rgba(22, 17, 44, 0.8)), url('../images/vaporwaveshit.jpg') no-repeat fixed center top;
+  background-size: cover;
+}
+#jumbotron .ui.text {
+  margin-top: 200px;
+}
+footer {
+  width: 100%;
+  background-color: #16112C !important;
+  height: 250px;
+}
+footer #copyright {
+  font-family: Palatino, "Libre Baskerville", serif !important;
+  line-height: 1.4em;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 85px;
+}
+code,
+kbd,
+pre {
+  font-family: "JetBrains Mono", "Fira Code", "Fira Mono", Monaco, monospace;
+}
+.orange.menu > .item {
+  background-color: #fd7648 !important;
+}
+.orange.menu > .item:hover {
+  background-color: #fd632f !important;
+}
+.orange.menu > .item:active {
+  background-color: #fd5820 !important;
+}
+#parent {
+  margin: -20px auto 30px;
+  width: 900px;
+}
+#socials {
+  width: 250px;
+  margin-left: 50px;
+}

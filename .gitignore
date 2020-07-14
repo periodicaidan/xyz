@@ -1,13 +1,4 @@
-### Generated files
-# Rust
 /target
-
-# Elm
-elm-stuff
-static/**/*.js
-
-# Less
-static/**/*.css
 
 ### Spooky Sneaky Secret Stuff™
 .env
