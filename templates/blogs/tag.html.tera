@@ -1,0 +1,41 @@
+{% extends "partial/base" %}
+{% set _nav = "blogs" %}
+
+{% block title %}#{{ tag }}{% endblock title %}
+
+{% block body %}
+<h2 class="ui dividing header">
+    #{{ tag }}
+</h2>
+{% if blogs | length == 0 %}
+<h2 class="ui centered header">
+    No blogs tagged <q>{{ tag }}</q>
+</h2>
+{% else %}
+<div class="ui one stackable cards">
+    {% for blog in blogs %}
+    <a class="card" href="/blogs/{{ blog.slug }}">
+    <div class="content">
+        <div class="header">
+            {{ blog.title }}
+        </div>
+        <div class="meta">
+            <span>{{ blog.author }}</span>
+            <span class="lig">&centerdot;</span>
+            <span>
+                {% if blog.updated_at %}
+                {{ blog.updated_at | date(format = "%B %-d, %Y") }}
+            {% else %}
+                {{ blog.created_at | date(format = "%B %-d, %Y") }}
+            {% endif %}
+            </span>
+        </div>
+        <div class="description">
+            {{ blog.subtitle }}
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock body %}

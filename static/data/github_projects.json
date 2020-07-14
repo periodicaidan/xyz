@@ -1,0 +1,22 @@
+[
+  {
+    "repo": "dart_tdlib",
+    "name": "TDLib for Dart"
+  },
+  {
+    "repo": "gbars",
+    "name": "GBARS"
+  },
+  {
+    "repo": "selfishserver",
+    "name": "Selfish Server"
+  },
+  {
+    "repo": "meme",
+    "name": "Mobile Enigma Machine Emulator (MEME)"
+  },
+  {
+    "repo": "keykey",
+    "name": "KeyKey"
+  }
+]

@@ -3,7 +3,7 @@
 <head>
     {% include "partial/head" %}
     <title>periodicaidan.xyz : : home</title>
-    <script src="{{ static_url_for("components/TypedTitle.js") }}"></script>
+    <script src="/static/components/Components.js"></script>
 </head>
 <body>
     <header class="ui inverted vertical center aligned segment" id="jumbotron">
@@ -26,24 +26,145 @@
         </div>
     </header>
     <main>
-        <h1>Hello, {{ name | default(value = "World")}}!</h1>
-
-        <span class="right arrow lig"></span>
-        <ul>
-            {% for project in projects %}
-            <li><a
-                    href="https://github.com/{% if project.ns %}{{ project.ns }}{% else %}periodicaidan{% endif %}/{{ project.repo }}"
-                    target="_blank"
-            >{{ project.name }}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="ui container">
+            <div class="ui segment" id="parent">
+                <div class="ui left rail">
+                    <div class="ui sticky">
+                        <div class="ui segment" id="socials">
+                            <div class="ui orange inverted fluid vertical labeled icon menu">
+                                {% for social in socials %}
+                                <a href="{{ social.link }}" class="orange item">
+                                    <i class="{{ social.icon }} icon"></i>
+                                    {{ social.name }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="projects">
+                    {# {% for project in projects %}
+                    <div
+                            class="ui {{ project.color }} segment project-card"
+                            role="link"
+                            href="https://github.com/{% if project.ns %}{{ project.ns }}{% else %}periodicaidan{% endif %}/{{ project.repo }}"
+                    >
+                        <div class="ui divided grid">
+                            <div class="four wide column"></div>
+                            <div class="twelve wide column">
+                                <h2 class="ui dividing header">
+                                    {{ project.name }}
+                                    <div class="sub header">{{ project.lang }}</div>
+                                </h2>
+                                <hr class="ui hidden divider">
+                                <p>{{ project.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %} #}
+                </div>
+            </div>
+        </div>
     </main>
     {% include "partial/footer" %}
     <script>
+        // Load all the GitHub projects
+        // (Doing this client-side so rate limiting becomes less of an issue)
+        {
+            let projects = JSON.parse(`{{ projects | safe }}`);
+            let projectsParent = document.getElementById('projects');
+            const projectLangColors = {
+                'C': 'grey',
+                'C#': 'green',
+                'C++': 'pink',
+                'Shell': 'olive',
+                'Julia': 'purple',
+                'Python': 'blue',
+                'Rust': 'brown',
+                'Dart': 'teal',
+                'Elm': 'teal',
+                'Java': 'yellow',
+                'Kotlin': 'orange',
+                'Haskell': 'violet'
+            };
+
+            // Initialize all the elements as loading segments
+            for (let project of projects) {
+                projectsParent.innerHTML += `
+                <div
+                    class="ui loading segment project-card"
+                    id="${project.repo}"
+                    role="link"
+                >
+                    <div class="ui divided grid">
+                        <div class="four wide column"></div>
+                        <div class="twelve wide column">
+                            <h2 class="ui dividing header">
+                                ${project.name}
+                                <div class="sub header"></div>
+                            </h2>
+                            <hr class="ui hidden divider">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            }
+
+            // Now fetch the data and when it's received load it into the correct element
+            for (let project of projects) {
+                fetch(`https://api.github.com/repos/periodicaidan/${project.repo}`, {
+                    headers: {
+                        'content-type': 'application/json',
+                        'accept': 'application/json'
+                    }
+                })
+                .then(res => res.json())
+                .then(json => {
+                    let context = document.querySelector(`.project-card#${project.repo}`);
+                    context.classList.remove('loading');
+                    context.classList.add(projectLangColors[json.language] || '');
+                    context.setAttribute('href', `https://github.com/${json.full_name}`);
+                    context.innerHTML = `
+                    <div class="ui divided grid">
+                        <div class="four wide column"></div>
+                        <div class="twelve wide column">
+                            <h2 class="ui dividing header">
+                                ${project.name}
+                                <div class="sub header">${json.language}</div>
+                            </h2>
+                            <hr class="ui hidden divider">
+                            <p>${json.description}</p>
+                        </div>
+                    </div>`
+                });
+            }
+        }
+
+        // Load the typed title
         for (let typedTitle of document.getElementsByClassName("typed-title")) {
             Elm.TypedTitle.init({
                 node: typedTitle,
                 flags: typedTitle.getAttribute("value")
+            });
+        }
+
+        // for (let externalLink of document.querySelectorAll("a[href^=http]")) {
+        //     externalLink.innerHTML += "&nbsp;&nbsp;<i class='external alternate icon'>";
+        // }
+
+        // Initialize the sticky social media sidebar
+        $('.ui.sticky')
+            .sticky({
+                context: '#parent'
+            });
+
+        // Add some stuff to the projects to make them act like links
+        for (let projectCard of document.querySelectorAll('.project-card')) {
+            projectCard.addEventListener('mouseenter', e => e.target.classList.add('raised'));
+            projectCard.addEventListener('mouseleave', e => e.target.classList.remove('raised'));
+            projectCard.addEventListener('click', function (_e) {
+                window.open(this.getAttribute('href'), '_blank');
             });
         }
     </script>

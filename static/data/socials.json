@@ -1,0 +1,22 @@
+[
+  {
+    "name": "GitHub",
+    "link": "https://github.com/periodicaidan",
+    "icon": "github"
+  },
+  {
+    "name": "Twitter",
+    "link": "https://twitter.com/periodicaidan",
+    "icon": "twitter"
+  },
+  {
+    "name": "LinkedIn",
+    "link": "https://linkedin.com/in/periodicaidan",
+    "icon": "linkedin"
+  },
+  {
+    "name": "Email",
+    "link": "mailto:periodicaidan@gmail.com",
+    "icon": "mail"
+  }
+]

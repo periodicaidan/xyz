@@ -14,6 +14,5 @@ components: ${JS_OUTPUTS}
 %.css: %.less
 	lessc $< $@
 
-%.js: src/%.elm
-	cd static/components
-	elm make $< --optimize --output=$@
+Components.js: ${ELM_SOURCES}
+	elm make $< --optimize --output=${COMPONENTS_DIR}/$@

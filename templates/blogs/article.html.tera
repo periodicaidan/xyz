@@ -1,1 +1,35 @@
+{% extends "partial/base" %}
 {% set _nav = "blogs" %}
+
+{% block title %}{{ content.title }}{% endblock title %}
+
+{% block extra_meta %}
+<script src="/static/components/Components.js"></script>
+{% endblock extra_meta %}
+
+{% block body %}
+<h1 class="ui header">
+    {{ content.title }}
+    {% if content.subtitle %}
+    <div class="sub header">{{ content.subtitle }}</div>
+    {% endif %}
+</h1>
+<div class="ui divider"></div>
+<div class="markdown"></div>
+<div class="ui segment">
+    <h4 class="ui dividing header">Tags</h4>
+    <div class="ui blue labels">
+        {% for tag in tags %}
+        <a href="/blogs/tags/{{ tag.name }}" class="ui label">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    for (let markdown of document.getElementsByClassName("markdown")) {
+        Elm.MarkdownParsing.init({
+            node: markdown,
+            flags: "{{ content.body }}"
+        })
+    }
+</script>
+{% endblock body %}

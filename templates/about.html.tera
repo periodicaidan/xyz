@@ -4,5 +4,37 @@
 {% block title %}about{% endblock title %}
 
 {% block body %}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut blanditiis dignissimos laudantium nam numquam soluta velit? Accusantium asperiores, consequatur ea et facilis laboriosam officia quasi quo. Exercitationem magni maxime nisi provident suscipit tenetur vitae. Ab asperiores dolore doloremque dolorum earum, eius eligendi esse inventore ipsam ipsum molestiae nam nemo, praesentium quod recusandae suscipit tempora veniam voluptatum! Aspernatur beatae debitis ea expedita explicabo illo, non placeat quia repudiandae sed, sequi vel velit vitae. Accusantium alias culpa, deserunt eaque laboriosam nesciunt perspiciatis quos. Accusantium consectetur cum debitis dicta doloremque ducimus ipsam, labore, laboriosam minus nihil nisi nostrum odio perspiciatis praesentium quasi velit.
+<div id="markdown"></div>
+<script>
+    // Render Markdown
+    // for (let markdown of document.getElementsByClassName("markdown")) {
+    //     Elm.MarkdownParsing.init({
+    //         node: markdown,
+    //         flags:
+    //     })
+    // }
+    Elm.MarkdownParsing.init({
+        node: document.getElementById('markdown'),
+        flags: `{{ content | safe }}`
+    });
+
+    // Set age
+    const calcYearsOld = (birthDate) => {
+        const now = new Date();
+        const greatestPossibleAge = now.getFullYear() - birthDate.getFullYear();
+
+        if (now.getMonth() > birthDate.getMonth()) {
+            return greatestPossibleAge;
+        } else if (now.getMonth() === birthDate.getMonth()) {
+            if (now.getDate() >= birthDate.getDate()) {
+                return greatestPossibleAge;
+            }
+        }
+
+        return greatestPossibleAge - 1;
+    };
+
+    let birthDate = new Date('September 16, 1997');
+    // document.getElementById('age').innerText = calcYearsOld(birthDate).toString();
+</script>
 {% endblock body %}

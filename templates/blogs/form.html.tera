@@ -1,0 +1,36 @@
+{% extends "partial/base" %}
+{% set _nav = "blogs" %}
+
+{% block title %}blog : : new{% endblock title %}
+
+{% block body %}
+<h2>New Blog</h2>
+
+{% if flash %}
+<div class="ui negative message">{{ flash }}</div>
+{% endif %}
+
+<form action="/blogs/new" method="post" class="ui form">
+    <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" id="title">
+    </div>
+    <div class="field">
+        <label>Subtitle (Optional)</label>
+        <input type="text" name="subtitle" id="subtitle">
+    </div>
+    <div class="field">
+        <label>Author (Leave Blank for Anonymous)</label>
+        <input type="text" name="author" id="author" value="Aidan T. Manning">
+    </div>
+    <div class="field">
+        <label>Slug</label>
+        <input type="text" name="slug" id="slug">
+    </div>
+    <div class="field">
+        <label>Body</label>
+        <textarea name="body" id="body" rows="10"></textarea>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+{% endblock body %}

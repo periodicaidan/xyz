@@ -5,6 +5,8 @@ use diesel::PgConnection;
 use dotenv;
 use std::env;
 
+pub use models::{add_blog, create_blog};
+
 pub fn connect() -> PgConnection {
     dotenv::dotenv().ok();
 

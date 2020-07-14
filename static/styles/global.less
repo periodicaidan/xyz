@@ -1,6 +1,10 @@
 @import "contants";
 @import "ligatures";
 
+p {
+  font-size: @paragraphSize;
+}
+
 @jumbotronHeight: 700px;
 
 #jumbotron {
@@ -13,10 +17,12 @@
   }
 }
 
+@footerHeight: 250px;
+
 footer {
   width: 100%;
   background-color: @black !important;
-  height: 250px;
+  height: @footerHeight;
 
   #copyright {
     font-family: @bodyFont !important;
@@ -29,4 +35,28 @@ footer {
 
 code, kbd, pre {
   font-family: @codeFont;
+}
+
+.orange.menu > .item {
+  @buttonColor: lighten(@orange, 5%);
+  background-color: @buttonColor !important;
+
+  &:hover {
+    background-color: darken(@buttonColor, 5%) !important;
+  }
+
+  &:active {
+    background-color: darken(@buttonColor, 8%) !important;
+  }
+}
+
+#parent {
+  margin: -20px auto 30px;
+  width: 900px;
+}
+
+#socials {
+  @width: 250px;
+  width: @width;
+  margin-left: 300px - @width;
 }

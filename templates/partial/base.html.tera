@@ -4,6 +4,7 @@
 <head>
     {% include "partial/head" %}
     <title>periodicaidan.xyz : : {% block title %}{% endblock title %}</title>
+    <script src='{{ static_url_for(path="components/Components.js") }}'></script>
     {% block extra_meta %}{% endblock extra_meta %}
 </head>
 <body>
@@ -14,5 +15,28 @@
         {% block body %}{% endblock body %}
     </main>
     {% include "partial/footer" %}
+    <script>
+        for (let externalLink of document.querySelectorAll("a[href^=http]")) {
+            let externalLinkIcon = document.createElement("i");
+            externalLink.classList.add("external", "alternate", "icon");
+            externalLink.appendChild(externalLinkIcon);
+        }
+
+        const positionFooter = (_e) => {
+            let footer = document.getElementsByTagName('footer').item(0);
+            let bodyHeight = document.body.scrollHeight;
+            footer.style.position = 'absolute';
+            footer.style.left = '0';
+
+            if (window.innerHeight > bodyHeight) {
+                footer.style.bottom = '0';
+            } else {
+                footer.style.bottom = (window.innerHeight - bodyHeight).toString();
+            }
+        };
+
+        window.addEventListener('resize', positionFooter);
+        window.addEventListener('load', positionFooter);
+    </script>
 </body>
 </html>

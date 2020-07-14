@@ -1,6 +1,3 @@
-[global.databases]
-periodicaidan = { url = "postgres://periodicaidan:p1sS?i#a7lI!@localhost/periodicaidan" }
-
 [development]
 address = "localhost"
 port = 7739
