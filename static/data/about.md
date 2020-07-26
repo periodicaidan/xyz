@@ -15,7 +15,8 @@ me I'd like it because of my proclivity for math and language. I
 started by learning Python and JavaScript and immediately took a 
 liking to it. So I pivoted more toward computational chemistry, which
 is all about simulating chemical phenomena and working with large 
-data sets. But currently I'd like to do software engineering full-time.
+data sets. I love my science background but currently I'm also interested
+in software engineering. 
 
 All of my software projects (that are worth showing off) 
 are available on my [GitHub page](https://github.com/periodicaidan).
@@ -37,4 +38,4 @@ a bug please inform me via [email](mailto:periodicaidan@gmail.com).
 
 ---
 
-> *I swear by my life and my love of it that I will never live for the sake of another man, nor ask another man to live for mine.*
+> *Life is an optimization problem*
